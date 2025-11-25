@@ -108,6 +108,8 @@ You can edit the traffic split by clicking on this **Update Deployment %** butto
 ![Update Deployment Traffic Split](/images/post_images/update-deployment.webp)
 
 ## (Optional) Step 7: Get Headers to target a specific worker version
+> ⚠️ There exists a header that their documentation says works `Cloudflare-Workers-Version-Overrides` but I couldn't get it to work so I had to use this version of targeting versions.
+
 Now that you have deployed at least some of your traffic to this worker. You can mess with random cookies til you identify a cookie that targets whatever workers you want. In my case I was looking for vercel headers to get a session cookie that I could use to guarantee that I hit the v1 version of my worker.
 ```sh
 # Example script to find my vercel deployment
@@ -121,7 +123,7 @@ done
 Then you can use that cookie to consistently get your v1.
 
 # Conclusion
-There are many paths to becoming a high level engineer. In the end it all comes down to **providing value in a scalable manner**. What that value is comes in many shapes and colors. You must operate with confidence, in a drivers before solutions manner to work together to build great software. We engineers are always learning and building these T-shaped skills as engineers and we need stay passionate about what we are working on to reach our full potential.
+You can split traffic using Cloudflare Workers in 15 minutes using this method with 0 changes to your infrastructure. The gotcha for me was version targeting which I am still talking to Cloudflare support about.
 
 # Takeaways
 * Gradual Deployments with Cloudflare workers is one way to split traffic to a given URL.
