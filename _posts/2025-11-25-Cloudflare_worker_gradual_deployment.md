@@ -73,6 +73,7 @@ export default {
 ## Header Transform Rule
 The header transform rule is used to get the users a consistent "version" of the worker. They have [documentation][Version Affinity] on this but it talks about a Rule Engine which to put it simply is just adding a **Request Header Transform** rule which occurs before the worker execution.
 
+![Header Transform Rule Configuration](/images/post_images/header-transform-rule.webp)
 # Deploying your Gradual Deployment
 > TODO: terraform or wrangler deploy all the business.
 
@@ -99,8 +100,7 @@ Worker Routes are annoying in a sense that they are exact. There's much document
 
 > Note: I had to create a second worker that catches all of my asset requests for my new vercel application and routes the traffic using something similar to my v1 script above.
 ## Step 5: Create your Header Transform Rule
-
-![Header Transform Rule Configuration](/images/post_images/header-transform-rule.webp)
+Create a **Header Transform Rule** in your zone similar to the one described above. This will set `Cloudflare-Workers-Version-Key` based off a session cookie.
 
 ## Step 6: Turn up your traffic split
 You can edit the traffic split by clicking on this **Update Deployment %** button. (Aren't you glad you put comments on your versions now 😘)
