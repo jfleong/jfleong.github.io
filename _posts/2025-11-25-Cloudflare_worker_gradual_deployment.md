@@ -108,7 +108,7 @@ You can edit the traffic split by clicking on this **Update Deployment %** butto
 ![Update Deployment Traffic Split](/images/post_images/update-deployment.webp)
 
 ## (Optional) Step 7: Get Headers to target a specific worker version
-> ⚠️ There exists a header that their documentation says works `Cloudflare-Workers-Version-Overrides` but I couldn't get it to work so I had to use this version of targeting versions.
+> ⚠️ There exists two headers that their documentation says work to choose your version `Cloudflare-Workers-Version-Overrides`, and `Cloudflare-Workers-Version-Key` but I couldn't get them to work so I had to use this version to target versions.
 
 Now that you have deployed at least some of your traffic to this worker. You can mess with random cookies til you identify a cookie that targets whatever workers you want. In my case I was looking for vercel headers to get a session cookie that I could use to guarantee that I hit the v1 version of my worker.
 ```sh
